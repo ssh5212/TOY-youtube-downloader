@@ -13,6 +13,7 @@ root = Tk()
 root.title("Youtube Downloader") 
 root.geometry("400x690") # windows 크기 조정
 root.resizable(False, False) # windows 크기 고정
+root.iconbitmap('./img/angelplayer.ico') # icon 지정
 
 W_canvas = 400
 H_canvas = 690
