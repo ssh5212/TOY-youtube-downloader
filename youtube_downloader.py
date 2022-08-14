@@ -95,10 +95,7 @@ def extraction():
     # 사용자 경로 지정 시 사용
     if download_path != '':
         ydl_opts['outtmpl'] = download_path + '/%(id)s-%(title)s.%(ext)s' # dowonload 경로 지정
-
-
     print(ydl_opts)
-    # print(ydl_opts['postprocessors'][0]['outtmpl'])
 
     # download with youtube_dl
     try:
@@ -111,6 +108,7 @@ def extraction():
 
 
 
+# path ckeck (audio)
 def extraction_audio(self):
     global youtube_url
     youtube_url = url.get()
@@ -127,16 +125,23 @@ def extraction_audio(self):
 
         extraction()
 
+
+# path ckeck (video)
 def extraction_video(self):
-    global download_option
-    download_option = 'video'
+    global youtube_url
+    youtube_url = url.get()
+    print('youtube_url : ', youtube_url)
+
+    if youtube_url == '':
+        url_alert.configure(text="path is empty")
+
+    else:
+        url_alert.configure(text="")
+
+        global download_option
+        download_option = 'video'
     extraction()
 
-# def change_url(self):
-#     result=youtube_url.get()
-#     print(youtube_url)
-
-
-
+# Run
 main()
 root.mainloop()
