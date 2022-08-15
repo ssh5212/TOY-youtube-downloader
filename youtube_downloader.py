@@ -41,7 +41,13 @@ def main():
     font_style = tkFont.Font(family="Arial", size=15, weight="bold")
     global down_notification
     down_notification = Label(root, text='', bg="white", fg='red', font=font_style)
-    down_notification.place(x=100, y=220)
+    down_notification.place(x=100, y=210)
+
+    # 다운로드 파일명
+    global down_filename
+    down_filename_style = tkFont.Font(family="Arial", size=7)
+    down_filename = Label(root, text='', bg="white", anchor="center", width = 40, height = 1, font=down_filename_style)
+    down_filename.place(x=80, y=235)
 
     # load youtube url
     global url
@@ -55,7 +61,7 @@ def main():
     global download_path
     download_path = os.path.dirname(os.path.realpath(__file__))
     btn = Button(root, text="Find...", command=search_path, bg="white", width = 40).place(x=54, y=402)
-    path = Label(root, text='경로 미선택 시 프로그램 저장 위치에 다운로드 진행', bg = "white")
+    path = Label(root, text='버튼 클릭 후 취소 시 프로그램 폴더에 다운로드', bg = "white")
     path.place(x=54, y=434)
     
     # audio button function
@@ -86,26 +92,44 @@ def extraction():
                 'preferredquality': '320',
             }],
         }   
-
     else:
         ydl_opts = {
             'format': 'best/best',  # video quality
             # 'writethumbnail': 'best',  # video thumbnail download
         }
 
-    # 사용자 경로 지정 시 사용
-    if download_path != '':
-        ydl_opts['outtmpl'] = download_path + '/%(id)s-%(title)s.%(ext)s' # dowonload 경로 지정
-    print(ydl_opts)
+    # outtmpl 설정
+    if download_path != '': # 사용자가 경로 지정 시
+        print('download_path not ""', download_path)
+        ydl_opts['outtmpl'] = download_path + '/%(title)s.%(ext)s' # dowonload 경로 지정
+    else: # 사용자가 경로를 지정하지 않을 시
+        print('download_path', download_path)
+        ydl_opts['outtmpl'] = '/%(title)s.%(ext)s'
 
     # download with youtube_dl
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-            down_notification.configure(text="Download successful!", fg='blue')
+            info_dict = ydl.extract_info(youtube_url, download=True)
+            fn = ydl.prepare_filename(info_dict)
+            
+            if download_option == 'audio':
+                for i in range(len(fn)-1, -1, -1):
+                    if fn[i] == '.':
+                        fn = fn[:i]
+                        fn += '.mp3'
+                        break
+            # print('Audio fn : ', fn)
+            
             ydl.download([youtube_url])
+
+            down_notification.configure(text="Download successful!", fg='blue')
+            down_filename.configure(text=f"File Name : {fn}")
+            
     except Exception as e:
         print('error', e)
         down_notification.configure(text="Failed to download...", fg='red')
+        down_filename.configure(text=f"File Name : {fn}")
+
 
 
 
@@ -114,6 +138,9 @@ def extraction_audio(self):
     global youtube_url
     youtube_url = url.get()
     print('youtube_url : ', youtube_url)
+
+    if youtube_url == '':
+        url_alert.configure(text="path is empty")
 
     if youtube_url == '':
         url_alert.configure(text="path is empty")
@@ -142,6 +169,7 @@ def extraction_video(self):
         global download_option
         download_option = 'video'
     extraction()
+
 
 # Run
 main()
