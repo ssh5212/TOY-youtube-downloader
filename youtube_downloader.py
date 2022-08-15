@@ -112,6 +112,7 @@ def extraction():
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(youtube_url, download=True)
             fn = ydl.prepare_filename(info_dict)
+            print(fn)
             
             if download_option == 'audio':
                 for i in range(len(fn)-1, -1, -1):
