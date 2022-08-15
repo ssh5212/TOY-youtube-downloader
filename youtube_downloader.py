@@ -133,8 +133,6 @@ def extraction():
         down_filename.configure(text=f"File Name : {fn}")
 
 
-
-
 # path ckeck (audio)
 def extraction_audio(self):
     global youtube_url
