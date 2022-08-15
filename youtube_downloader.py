@@ -62,7 +62,7 @@ def main():
     # download_path = os.path.dirname(os.path.realpath(__file__))
     download_path = ''
     btn = Button(root, text="Find...", command=search_path, bg="white", width = 40).place(x=54, y=402)
-    path = Label(root, text='버튼 클릭 후 취소 시 프로그램 폴더에 다운로드', bg="white", anchor='w', width = 40, height = 1)
+    path = Label(root, text='경로 미지정 시 프로그램이 저장된 폴더 자동 지정', bg="white", anchor='w', width = 40, height = 1)
     path.place(x=54, y=434)
     
     # audio button function
