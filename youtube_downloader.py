@@ -46,8 +46,8 @@ def main():
     # 다운로드 파일명
     global down_filename
     down_filename_style = tkFont.Font(family="Arial", size=7)
-    down_filename = Label(root, text='', bg="white", anchor="center", width = 40, height = 1, font=down_filename_style)
-    down_filename.place(x=80, y=235)
+    down_filename = Label(root, text='', bg="white", anchor="center", width = 48, height = 1, font=down_filename_style)
+    down_filename.place(x=54, y=235)
 
     # load youtube url
     global url
@@ -59,9 +59,10 @@ def main():
     
     # load download path
     global download_path
-    download_path = os.path.dirname(os.path.realpath(__file__))
+    # download_path = os.path.dirname(os.path.realpath(__file__))
+    download_path = ''
     btn = Button(root, text="Find...", command=search_path, bg="white", width = 40).place(x=54, y=402)
-    path = Label(root, text='버튼 클릭 후 취소 시 프로그램 폴더에 다운로드', bg = "white")
+    path = Label(root, text='버튼 클릭 후 취소 시 프로그램 폴더에 다운로드', bg="white", anchor='w', width = 40, height = 1)
     path.place(x=54, y=434)
     
     # audio button function
