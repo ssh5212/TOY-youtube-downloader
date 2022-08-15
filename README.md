@@ -3,6 +3,7 @@
 Youtube 영상 & 영상 음원을 추출 후 Local Storage에 저장하는 기능을 구현한 프로그램입니다. <br><br>
 
 - 프로젝트 기간 : 2022-08-12 - 2022-08-15
+- How to Use : https://angelplayer.tistory.com/355
 
 
 ## 개발 기능
