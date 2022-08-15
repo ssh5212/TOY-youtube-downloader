@@ -121,7 +121,8 @@ def extraction():
                         break
             # print('Audio fn : ', fn)
             
-            ydl.download([youtube_url])
+            # 113 Line으로 대체
+            # ydl.download([youtube_url])
 
             down_notification.configure(text="Download successful!", fg='blue')
             down_filename.configure(text=f"File Name : {fn}")
@@ -139,9 +140,6 @@ def extraction_audio(self):
     global youtube_url
     youtube_url = url.get()
     print('youtube_url : ', youtube_url)
-
-    if youtube_url == '':
-        url_alert.configure(text="path is empty")
 
     if youtube_url == '':
         url_alert.configure(text="path is empty")
@@ -169,7 +167,7 @@ def extraction_video(self):
 
         global download_option
         download_option = 'video'
-    extraction()
+        extraction()
 
 
 # Run
