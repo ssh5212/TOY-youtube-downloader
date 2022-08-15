@@ -1,0 +1,48 @@
+===== Youtube Downloader =============================
+
+이미지를 포함한 설치 방법은 하단에 위치한 링크에서 설명하고 있습니다.
+https://angelplayer.tistory.com/355
+
+※ 사용 문의, 오류 제보, 기타 건의 사항은 해당 링크 포스트 하단에
+   댓글로 남겨주시면 감사하겠습니다.
+
+===== How to Use ===================================
+
+1. 설치 방법 (※ 상세 설명 : https://angelplayer.tistory.com/351)
+1-1) FFmpeg 다운로드 
+1-1-1) [ffmpeg-n5.1-latest-win64-gpl-shared-5.1.zip]를 다운로드
+link : https://github.com/BtbN/FFmpeg-Builds/releases
+
+1-1-2) 환경 변수 path에 ffmpeg 추가
+
+
+1-2) youtube-downloader 다운로드
+link : https://github.com/ssh5212/youtube-downloader
+
+-----------------------------------------------------------------------------
+2. 사용 방법
+2-1) youtube_downloader.exe 파일 실행
+
+2-2) Youtube URL Form : Youtube Link 작성
+
+2-3) Dowonload PATH : 다운로드 받을 경로 지정 
+(미 지정시 프로그램이 위치한 폴더에 다운로드)
+
+2-4) Audio Download | Vedio Download 선택하여 파일 다운로드
+
+-----------------------------------------------------------------------------
+3. 기타
+※ 다운로드 도중 일시적으로 (응답 없음)이 발생합니다.
+파일을 다운로드하는 순간 이루어지므로 프로그램을 강제 종료하지 마세요!
+
+※ C:// 등 위치를 다운로드 경로로 지정하는 경우 제대로 실행되지 않습니다.
+작업관리자 권한을 통해서 실행하는 경우 정상적으로 다운로드가 진행됩니다.
+
+===== Infomation ====================================
+
+Github Link : https://github.com/ssh5212/youtube-downloader
+Youtube : https://www.youtube.com/watch?v=XLvv-DbW6r0&t=1s 
+How to Use : https://angelplayer.tistory.com/355
+Project Chit Chat : https://angelplayer.tistory.com/353﻿
+
+=================================================
