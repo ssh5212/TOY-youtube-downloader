@@ -31,4 +31,7 @@ https://www.youtube.com/watch?v=XLvv-DbW6r0
 
 
 ## Reference
-https://angelplayer.tistory.com/353
+- Github Link : https://github.com/ssh5212/youtube-downloader
+- Youtube : https://www.youtube.com/watch?v=XLvv-DbW6r0&t=1s 
+- How to Use : https://angelplayer.tistory.com/355
+- Project Chit Chat : https://angelplayer.tistory.com/353
